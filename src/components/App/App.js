@@ -1,28 +1,29 @@
 import "./App.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import { createBrowserRouter, Navigate, RouterProvider, useLocation, BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from 'firebase/firestore/lite';
 
 import Home from "../Home/Home";
+import Settings from "../Settings/Settings";
+import Notifications from "../Settings/Notifications/Notifications";
+import Challenges from "../Settings/Challenges/Challenges";
 import Onboarding from "../Onboarding/Onboarding";
+import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
+import Auth from "../Auth/Auth";
+import Verify from "../Verify/Verify";
+
+import { logIn } from "../../utils/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/onboarding",
-      element: <Onboarding />,
-    },
-    {
-      path: "/signup",
-      element: <Signup />,
-    }
-  ]);
+
+  const [loggedIn, setLoggedIn] = useState(null);
+  const [isVerifying, setIsVerifying] = useState(false);
+  const navigate = useNavigate();
 
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -39,10 +40,60 @@ function App() {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+
+  useEffect(() => {
+    if (loggedIn) {
+        setIsVerifying(false);
+        navigate("/");
+    } else if (loggedIn === false && !isVerifying) {
+      setIsVerifying(false);
+      navigate("/login");
+    }
+  }, [loggedIn, isVerifying]);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+    });
+  }, []);
+
 
   return (
-    <RouterProvider router={router} />
+    <>
+      <header>BeGreen.</header>
+      <Routes>
+        {loggedIn === true ? (
+          <Fragment>
+            <Route path="/" element={<Home />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/notifications" element={<Notifications />} />
+            <Route path="/settings/challenges" element={<Challenges db={db} auth={auth} />} />
+            <Route path="/onboarding" element={<Onboarding />} />
+          </Fragment>
+        ) : (
+          <Route path="*" element={<Navigate to="/auth" />} />
+        )}
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/verify" element={<Verify setIsVerifying={setIsVerifying} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </>
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  )
+}
+
+export default AppWrapper;
