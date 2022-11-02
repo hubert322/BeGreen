@@ -1,17 +1,20 @@
 import { useState, } from "react";
 import { useNavigate } from "react-router-dom";
-import TimePicker from "react-time-picker";
+import { loginWithEmail } from "../../utils/auth";
+import { NotificationBody, DEFAULT_START_TIME, DEFAULT_END_TIME } from "../Settings/Notifications/Notifications";
 import "./Signup.css";
 
-function Signup() {
+function Signup(props) {
+
+  const { app } = props;
 
   const navigate = useNavigate();
   const [signupStepCounter, setSignupStepCounter] = useState(0);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [numChallenges, setNumChallenges] = useState(undefined);
-  const [startTime, setStartTime] = useState("08:00");
-  const [endTime, setEndTime] = useState("23:00");
+  const [startTime, setStartTime] = useState(DEFAULT_START_TIME);
+  const [endTime, setEndTime] = useState(DEFAULT_END_TIME);
 
   function getSignupComponents() {
     switch(signupStepCounter) {
@@ -33,8 +36,8 @@ function Signup() {
           return (
             <>
               <p>How many challenges do you want a day</p>
-              <select defaultValue={undefined} value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))}>
-                <option disabled value={undefined}> -- select an option -- </option>
+              <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))}>
+                <option value={undefined} hidden> -- select an option -- </option>
                 {[...Array(5).keys()].map((i) => (
                   <option key={`num-challenges-${i + 1}`} value={i + 1}>{i + 1}</option>
                 ))}
@@ -63,28 +66,29 @@ function Signup() {
     else if (signupStepCounter === 2 && numChallenges === undefined) {
       alert("Please select the number of challenges you want to receive a day.");
     }
-    else if (signupStepCounter === 3 && startTime === "") {
-      alert("Please select a start time for your notifications");
-    }
-    else if (signupStepCounter === 3 && endTime === "") {
-      alert("Please select a end time for your notifications");
-    }
-    else if (signupStepCounter === 3 && !("08:00" <= startTime && startTime <= "23:00")) {
-      console.log(startTime);
-      alert("Start time has to be between 08:00 AM and 11:00 PM");
-    }
-    else if (signupStepCounter === 3 && !("08:00" <= endTime && endTime <= "23:00")) {
-      alert("End time has to be between 08:00 AM and 11:59 PM");
-    }
-    else if (signupStepCounter === 3 && startTime > endTime) {
-      alert("Start time has to be before end time");
-    }
+    // else if (signupStepCounter === 3 && startTime === "") {
+    //   alert("Please select a start time for your notifications");
+    // }
+    // else if (signupStepCounter === 3 && endTime === "") {
+    //   alert("Please select a end time for your notifications");
+    // }
+    // else if (signupStepCounter === 3 && !("08:00" <= startTime && startTime <= "23:00")) {
+    //   console.log(startTime);
+    //   alert("Start time has to be between 08:00 AM and 11:00 PM");
+    // }
+    // else if (signupStepCounter === 3 && !("08:00" <= endTime && endTime <= "23:00")) {
+    //   alert("End time has to be between 08:00 AM and 11:59 PM");
+    // }
+    // else if (signupStepCounter === 3 && startTime > endTime) {
+    //   alert("Start time has to be before end time");
+    // }
     else {
-      if (signupStepCounter < 3) {
-        setSignupStepCounter(signupStepCounter + 1);
-      } else {
-        navigate("/");
+      // At last step
+      if (signupStepCounter === 3) {
+        console.log("send email");
+        loginWithEmail(app, email);
       }
+      setSignupStepCounter(signupStepCounter + 1);
     }
   }
 
@@ -104,7 +108,11 @@ function Signup() {
   return (
     <div>
       {getSignupComponents()}
-      <button type="button" onClick={onContinue} disabled={disableContinue()}>Continue</button>
+      {signupStepCounter < 4 ? (
+        <button type="button" onClick={onContinue} disabled={disableContinue()}>Continue</button>
+      ) : (
+        <p>Click on the email link sent to {email} to finish signing up!</p>
+      )}
     </div>
   )
 }

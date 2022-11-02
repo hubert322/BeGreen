@@ -82,7 +82,7 @@ function App() {
         <Route path="/auth" element={<Auth />} />
         <Route path="/verify" element={<Verify setIsVerifying={setIsVerifying} db={db} auth={auth} />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup app={app} />} />
       </Routes>
     </>
   );

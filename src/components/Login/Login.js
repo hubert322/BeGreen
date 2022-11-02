@@ -13,7 +13,7 @@ function Login(props) {
 
   const loginMessages = [
     "Log in using your email",
-    `Click on the email link sent to ${email}`,
+    `Click on the email link sent to ${email} to finish logging in!`,
   ];
 
   const onContinue = useCallback(() => {

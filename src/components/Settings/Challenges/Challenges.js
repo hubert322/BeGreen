@@ -49,8 +49,8 @@ function Challenges(props) {
         <p>How many challenges do you want a day?</p>
       </div>
       <div>
-        <select defaultValue={undefined} value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))}>
-          <option disabled value={undefined}> -- select an option -- </option>
+        <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))}>
+          <option value={undefined} hidden> -- select an option -- </option>
           {[...Array(5).keys()].map((i) => (
             <option key={`num-challenges-${i + 1}`} value={i + 1}>{i + 1}</option>
           ))}

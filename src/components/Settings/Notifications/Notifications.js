@@ -137,4 +137,8 @@ export function NotificationBody(props) {
   )
 }
 
+
+export const DEFAULT_START_TIME = dayjs("2022-11-01T08:00");
+export const DEFAULT_END_TIME = dayjs("2022-11-01T24:00");
+
 export default Notifications;
