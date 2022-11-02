@@ -1,3 +1,14 @@
+# Development
+Once you clone the repository, run the following commands in the project root to start developing:
+1. Run `npm install` to install the needed packages
+2. Run `npm start` to run the development server
+
+<br>
+<br>
+<br>
+<br>
+
+(The documentation below is left just in case)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
