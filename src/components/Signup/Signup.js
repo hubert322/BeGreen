@@ -43,25 +43,12 @@ function Signup() {
           );
         case 3:
           return (
-            <>
-              <p>What's a good time to receive notification?</p>
-              <TimePicker
-                label="Start Time"
-                value={startTime}
-                onChange={setStartTime}
-                format="hh a"
-                minTime="08:00"
-                maxTime={"23:00" < endTime ? endTime : "23:00"}
-              />
-              <p>to</p>
-              <TimePicker
-                value={endTime}
-                onChange={setEndTime}
-                format="hh a"
-                minTime={"08:00" < startTime ? startTime : "08:00"}
-                maxTime="23:00"
-              />
-            </>
+            <NotificationBody
+              startTime={startTime}
+              setStartTime={setStartTime}
+              endTime={endTime}
+              setEndTime={setEndTime}
+            />
           );
     }
   }
@@ -116,11 +103,6 @@ function Signup() {
 
   return (
     <div>
-      <p>name: {name}</p>
-      <p>email: {email}</p>
-      <p>numChallenges: {numChallenges}</p>
-      <p>startTime: {startTime}</p>
-      <p>endTime: {endTime}</p>
       {getSignupComponents()}
       <button type="button" onClick={onContinue} disabled={disableContinue()}>Continue</button>
     </div>

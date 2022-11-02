@@ -65,6 +65,25 @@ function Notifications(props) {
   return (
     <div>
       <Nav />
+      <NotificationBody
+        startTime={startTime}
+        setStartTime={setStartTime}
+        endTime={endTime}
+        setEndTime={setEndTime}
+      />
+      <div>
+        <button type="button" onClick={onSave}>Save</button>
+      </div>
+    </div>
+  );
+};
+
+export function NotificationBody(props) {
+
+  const { startTime, setStartTime, endTime, setEndTime } = props;
+
+  return (
+    <>
       <div>
         <p>What's a good time to receive notifications?</p>
       </div>
@@ -114,11 +133,8 @@ function Notifications(props) {
         />
       </LocalizationProvider>
       </div>
-      <div>
-        <button type="button" onClick={onSave}>Save</button>
-      </div>
-    </div>
-  );
-};
+    </>
+  )
+}
 
 export default Notifications;
