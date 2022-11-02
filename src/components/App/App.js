@@ -72,7 +72,7 @@ function App() {
           <Fragment>
             <Route path="/" element={<Home />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/settings/notifications" element={<Notifications />} />
+            <Route path="/settings/notifications" element={<Notifications db={db} auth={auth} />} />
             <Route path="/settings/challenges" element={<Challenges db={db} auth={auth} />} />
             <Route path="/onboarding" element={<Onboarding />} />
           </Fragment>

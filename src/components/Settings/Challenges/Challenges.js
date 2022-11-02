@@ -17,7 +17,7 @@ function Challenges(props) {
       await updateDoc(userPrefsDocRef.current, {
         "numChallenges": numChallenges
       });
-      alert("Challenge Settings Saved!");
+      alert("Challenge settings Saved!");
       navigate("/settings");
     } catch (e) {
       alert("Failed to save settings. Please try again.");
