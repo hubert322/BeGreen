@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Notifications.css";
 import Nav from "../..//Nav/Nav";
-// import TimePicker from "react-time-picker";
 import { doc, getDoc, updateDoc } from "firebase/firestore/lite";
 
 import dayjs from 'dayjs';
@@ -15,8 +14,6 @@ function Notifications(props) {
 
   const { db, auth } = props;
   const timePrefix = "2022-11-01T";
-  const defaultMinTime = dayjs(`${timePrefix}08:00`);
-  const defaultMaxTime = dayjs(`${timePrefix}23:59`);
 
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
@@ -35,8 +32,8 @@ function Notifications(props) {
     else {
       try {
         await updateDoc(userPrefsDocRef.current, {
-          "notificationStartTime": startTime,
-          "notificationEndTime": endTime,
+          "notificationStartTime": startTime.hour(),
+          "notificationEndTime": endTime.hour(),
         });
         alert("Notification settings Saved!");
         navigate("/settings");
@@ -74,41 +71,48 @@ function Notifications(props) {
       <div>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <MobileTimePicker
-          label="Time"
           value={startTime}
           onChange={value => setStartTime(value)}
-          minTime={defaultMinTime}
-          maxTime={endTime < defaultMaxTime ? endTime : defaultMaxTime}
+          shouldDisableTime={(time, type) => {
+            if (type !== "hours") {
+              return false;
+            }
+            // defaults
+            // You cannot start from midnight for start time
+            if (0 <= time && time < 8) {
+              return true;
+            }
+            // If end time is at midnight, then the whole range should be enabled
+            if (endTime.hour() == 0) {
+              return !(8 <= time && time <= 23);
+            }
+            return endTime.hour() < time;
+          }}
           views={["hours"]}
           renderInput={(params) => <TextField {...params} />}
         />
         <p>to</p>
         <MobileTimePicker
-          label="Time"
           value={endTime}
           onChange={value => setEndTime(value)}
-          minTime={defaultMinTime < startTime ? startTime : defaultMinTime}
-          maxTime={defaultMaxTime}
+          shouldDisableTime={(time, type) => {
+            if (type !== "hours") {
+              return false;
+            }
+            // defaults
+            if (1 <= time && time < 8) {
+              return true;
+            }
+            // Midnight will always be the latest time
+            if (time == 0) {
+              return false;
+            }
+            return time < startTime.hour();
+          }}
           views={["hours"]}
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
-      {/* <TimePicker
-          label="Start Time"
-          value={startTime}
-          onChange={setStartTime}
-          format="hh a"
-          minTime="08:00"
-          maxTime={"23:00" < endTime ? endTime : "23:00"}
-        />
-        <p>to</p>
-        <TimePicker
-          value={endTime}
-          onChange={setEndTime}
-          format="hh a"
-          minTime={"08:00" < startTime ? startTime : "08:00"}
-          maxTime="23:00"
-        /> */}
       </div>
       <div>
         <button type="button" onClick={onSave}>Save</button>
