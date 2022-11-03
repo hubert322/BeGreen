@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import "./Nav.css";
+import Shape from "../../assets/images/arrow-left.png";
 
 function Nav(props) {
 
@@ -14,7 +15,13 @@ function Nav(props) {
 
   return (
     <nav>
-      <button type="button" onClick={onBack}>Back</button>
+      <button 
+        type="button"
+        onClick={onBack}
+        className="backButton"
+      >
+        <img src={Shape} />
+      </button>
     </nav>
   );
 };

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Settings.css";
+import styles from "./Settings.css";
 import Nav from "../Nav/Nav";
 
 function Settings() {
@@ -16,15 +16,17 @@ function Settings() {
   }, [navigate]);
 
   return (
-    <div>
+    < >
       <Nav />
       <div>
-        <button type="button" onClick={onNotifications}>Notifications</button>
-        <button type="button" onClick={onChallenges}>Challenges</button>
+        <button type="button" onClick={onNotifications} className="Notifications">Notifications</button>
+        <button type="button" onClick={onChallenges} className="Challenges">Challenges</button>
       </div>
-      <button>Log out</button>
-    </div>
+      <button className="secondarybutton">Log out</button>
+    </>
   );
 };
 
-export default Settings;
+
+
+export default Settings

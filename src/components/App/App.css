@@ -2,6 +2,49 @@
   text-align: center;
 }
 
+.Be{
+  position: absolute;
+width: 94px;
+height: 29px;
+left: 157px;
+top: 37px;
+
+font-family: 'Segoe UI';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 27px;
+
+color: #E7E8E3;
+
+}
+
+.Green{
+position: absolute;
+width: 94px;
+height: 29px;
+left: 201px;
+top: 37px;
+
+font-family: 'Segoe UI';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 27px;
+
+color: #99DAB3;
+
+}
+
+.background{
+  position: relative;
+  width: 390px;
+  height: 844px;
+
+  background: #030303;
+  border-radius: 30px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

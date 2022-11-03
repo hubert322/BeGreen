@@ -4,6 +4,7 @@ import "./Challenges.css";
 import Nav from "../..//Nav/Nav";
 import { doc, getDoc, updateDoc } from "firebase/firestore/lite";
 
+
 function Challenges(props) {
 
   const { db, auth } = props;
@@ -37,7 +38,7 @@ function Challenges(props) {
 
   if (numChallenges === undefined) {
     return (
-      <div>
+      <div class="title">
         Loading...
       </div>
     )
@@ -45,11 +46,11 @@ function Challenges(props) {
   return (
     <div>
       <Nav />
-      <div>
+      <div class ="title">
         <p>How many challenges do you want a day?</p>
       </div>
-      <div>
-        <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))}>
+      <div class = "dropdown">
+        <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))} className="optionsbox">
           <option value={undefined} hidden> -- select an option -- </option>
           {[...Array(5).keys()].map((i) => (
             <option key={`num-challenges-${i + 1}`} value={i + 1}>{i + 1}</option>
@@ -57,7 +58,7 @@ function Challenges(props) {
         </select>
       </div>
       <div>
-        <button type="button" onClick={onSave}>Save</button>
+        <button type="button" onClick={onSave} className="button">Save</button>
       </div>
     </div>
   );
