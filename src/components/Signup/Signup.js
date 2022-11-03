@@ -21,28 +21,34 @@ function Signup(props) {
       case 0:
         return (
           <>
-            <p>Let's get started, what's your name?</p>
-            <input type="text" placeholder="Your name" value={name} onChange={e => setName(e.target.value)} />
+            <p className="title">Let's get started, what's your name?</p>
+            <input className="input" type="text" placeholder="Your name" value={name} onChange={e => setName(e.target.value)} />
           </>
         )
       case 1:
         return (
           <>
-            <p>Create your account using your email</p>
-            <input type="text" placeholder="Your email" value={email} onChange={e => setEmail(e.target.value)} />
+            <p className="title">Create your account using your email</p>
+            <input className="input" type="text" placeholder="Your email" value={email} onChange={e => setEmail(e.target.value)} />
           </>
         );
         case 2:
           return (
-            <>
-              <p>How many challenges do you want a day</p>
-              <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))}>
-                <option value={undefined} hidden> -- select an option -- </option>
-                {[...Array(5).keys()].map((i) => (
-                  <option key={`num-challenges-${i + 1}`} value={i + 1}>{i + 1}</option>
-                ))}
-              </select>
-            </>
+            <div>
+             
+              <div className ="title">
+                <p>How many challenges do you want a day?</p>
+              </div>
+              <div className = "dropdown">
+                <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))} className="optionsbox">
+                  <option value={undefined} hidden> -- select an option -- </option>
+                  {[...Array(5).keys()].map((i) => (
+                    <option key={`num-challenges-${i + 1}`} value={i + 1}>{i + 1}</option>
+                  ))}
+                </select>
+              </div>
+             
+            </div>
           );
         case 3:
           return (
@@ -109,9 +115,9 @@ function Signup(props) {
     <div>
       {getSignupComponents()}
       {signupStepCounter < 4 ? (
-        <button type="button" onClick={onContinue} disabled={disableContinue()}>Continue</button>
+        <button className="button" type="button" onClick={onContinue} disabled={disableContinue()}>Continue</button>
       ) : (
-        <p>Click on the email link sent to {email} to finish signing up!</p>
+        <p className="title">Click on the email link sent to {email} to finish signing up!</p>
       )}
     </div>
   )

@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
+ 
 
 function Notifications(props) {
 
@@ -72,7 +73,7 @@ function Notifications(props) {
         setEndTime={setEndTime}
       />
       <div>
-        <button type="button" onClick={onSave}>Save</button>
+        <button type="button" onClick={onSave} className="button">Save</button>
       </div>
     </div>
   );
@@ -84,10 +85,10 @@ export function NotificationBody(props) {
 
   return (
     <>
-      <div>
+      <div className="title">
         <p>What's a good time to receive notifications?</p>
       </div>
-      <div>
+      <div className="timepicker">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <MobileTimePicker
           value={startTime}

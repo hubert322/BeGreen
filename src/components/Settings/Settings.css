@@ -1,0 +1,105 @@
+.Notifications{
+  box-sizing: border-box;
+
+  /* Auto layout */
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16.2889px 0px;
+  gap: 9.05px;
+  
+  position: absolute;
+  width: 360.17px;
+  height: 51.58px;
+  left: 13.57px;
+  top: 169.22px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 0.9px solid #EFEFEF;
+  background-color: black;
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14.4791px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.017em;
+
+  color: #FFFFFF;
+
+}
+
+.Challenges{
+box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 16.2889px 0px;
+gap: 9.05px;
+border-top: none;
+border-left: none;
+border-right: none;
+border-bottom: 0.9px solid #EFEFEF;
+background-color: black;
+
+
+position: absolute;
+width: 360.17px;
+height: 51.58px;
+left: 13.57px;
+top: 219px;
+
+border-bottom: 0.904941px solid #EFEFEF;
+font-family: 'Segoe UI';
+font-style: normal;
+font-weight: 400;
+font-size: 14.4791px;
+line-height: 19px;
+display: flex;
+align-items: center;
+letter-spacing: -0.017em;
+
+color: #FFFFFF;
+}
+
+.secondarybutton{
+box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 7px 32px;
+gap: 10px;
+
+position: absolute;
+width: 350px;
+height: 60px;
+left: 20px;
+top: 712px;
+
+border: 1px solid rgba(255, 255, 255, 0.63);
+border-radius: 20px;
+background-color: black;
+font-family: 'Segoe UI';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 32px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+
+}

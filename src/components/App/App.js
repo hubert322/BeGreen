@@ -65,8 +65,8 @@ function App() {
 
 
   return (
-    <>
-      <header>BeGreen.</header>
+    <div className="background">
+      <header><span className="Be">Carb</span><span className="Green">Off.</span></header>
       <Routes>
         {loggedIn === true ? (
           <Fragment>
@@ -84,7 +84,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup app={app} />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

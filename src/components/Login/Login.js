@@ -32,18 +32,18 @@ function Login(props) {
   return (
     <div>
       <div>
-        <p>{loginMessages[loginStepCounter]}</p>
+        <p className="title">{loginMessages[loginStepCounter]}</p>
       </div>
       <div>
         {loginStepCounter == 0 ? (
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+          <input className="input" placeholder="Your email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
         ) : null}
       </div>
       <div>
         {loginStepCounter == 0 ? (
-          <button type="button" onClick={onContinue}>Continue</button>
+          <button type="button" onClick={onContinue} className="button">Continue</button>
         ) : null}
-        <button type="button" onClick={onSignup}>Sign Up</button>
+        <button type="button" onClick={onSignup} className="secondarybutton">Sign Up</button>
       </div>
     </div>
   );

@@ -1,6 +1,14 @@
-.Home {
-  text-align: center;
+
+.Settings{
+  background-color: Transparent;
+  border:none;
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  left: 19px;
+  top: 52px;
 }
+
 
 .Home-logo {
   height: 40vmin;
