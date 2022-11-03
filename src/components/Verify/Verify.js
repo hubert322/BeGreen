@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { emailRedirectLogin } from "../../utils/auth";
 import "./Verify.css";
-import { doc, updateDoc } from "firebase/firestore/lite";
+import { doc, getDoc, setDoc } from "firebase/firestore/lite";
 
 function Verify(props) {
 
@@ -14,11 +14,15 @@ function Verify(props) {
 
     async function helper() {
       const userPrefsDocRef = doc(db, "user-preferences", auth.currentUser.uid);
-      await updateDoc(userPrefsDocRef, {
-        "numChallenges": 3,
-        "notificationStartTime": "08:00",
-        "notificationEndTime": "23:00",
-      });
+      const userPrefsSnapshot = await getDoc(userPrefsDocRef);
+      // If this is the user first time logging in, set the default preferences
+      if (!userPrefsSnapshot.exists) {
+        await setDoc(userPrefsDocRef, {
+          "numChallenges": 3,
+          "notificationStartTime": 8,
+          "notificationEndTime": 23,
+        });
+      }
     }
 
     setIsVerifying(true);
