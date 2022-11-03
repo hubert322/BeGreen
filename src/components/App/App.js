@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./App.module.css";
 
 import { Fragment, useEffect, useState } from "react";
 import { createBrowserRouter, Navigate, RouterProvider, useLocation, BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
@@ -65,8 +65,8 @@ function App() {
 
 
   return (
-    <div className="background">
-      <header><span className="Be">Carb</span><span className="Green">Off.</span></header>
+    <div className={styles.background}>
+      <header><span className={styles.Be}>Carb</span><span className={styles.Green}>Off.</span></header>
       <Routes>
         {loggedIn === true ? (
           <Fragment>

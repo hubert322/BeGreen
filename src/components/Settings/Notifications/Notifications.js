@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Notifications.css";
+import styles from "./Notifications.module.css";
 import Nav from "../..//Nav/Nav";
 import { doc, getDoc, updateDoc } from "firebase/firestore/lite";
 
@@ -73,7 +73,7 @@ function Notifications(props) {
         setEndTime={setEndTime}
       />
       <div>
-        <button type="button" onClick={onSave} className="button">Save</button>
+        <button type="button" onClick={onSave} className={styles.button}>Save</button>
       </div>
     </div>
   );
@@ -85,10 +85,10 @@ export function NotificationBody(props) {
 
   return (
     <>
-      <div className="title">
+      <div className={styles.title}>
         <p>What's a good time to receive notifications?</p>
       </div>
-      <div className="timepicker">
+      <div className={styles.timepicker}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <MobileTimePicker
           value={startTime}

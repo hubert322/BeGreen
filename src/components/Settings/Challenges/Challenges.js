@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Challenges.css";
+import styles from "./Challenges.module.css";
 import Nav from "../..//Nav/Nav";
 import { doc, getDoc, updateDoc } from "firebase/firestore/lite";
 
@@ -38,7 +38,7 @@ function Challenges(props) {
 
   if (numChallenges === undefined) {
     return (
-      <div class="title">
+      <div className={styles.title}>
         Loading...
       </div>
     )
@@ -46,11 +46,11 @@ function Challenges(props) {
   return (
     <div>
       <Nav />
-      <div class ="title">
+      <div className={styles.title}>
         <p>How many challenges do you want a day?</p>
       </div>
-      <div class = "dropdown">
-        <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))} className="optionsbox">
+      <div className={styles.dropdown}>
+        <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))} className={styles.optionsbox}>
           <option value={undefined} hidden> -- select an option -- </option>
           {[...Array(5).keys()].map((i) => (
             <option key={`num-challenges-${i + 1}`} value={i + 1}>{i + 1}</option>
@@ -58,7 +58,7 @@ function Challenges(props) {
         </select>
       </div>
       <div>
-        <button type="button" onClick={onSave} className="button">Save</button>
+        <button type="button" onClick={onSave} className={styles.button}>Save</button>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Settings.css";
+import styles from "./Settings.module.css";
 import Nav from "../Nav/Nav";
 
 function Settings() {
@@ -19,10 +19,10 @@ function Settings() {
     < >
       <Nav />
       <div>
-        <button type="button" onClick={onNotifications} className="Notifications">Notifications</button>
-        <button type="button" onClick={onChallenges} className="Challenges">Challenges</button>
+        <button type="button" onClick={onNotifications} className={styles.Notifications}>Notifications</button>
+        <button type="button" onClick={onChallenges} className={styles.Challenges}>Challenges</button>
       </div>
-      <button className="secondarybutton">Log out</button>
+      <button className={styles.secondarybutton}>Log out</button>
     </>
   );
 };

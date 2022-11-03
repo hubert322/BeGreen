@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Onboarding.css";
+import styles from "./Onboarding.module.css";
 
 function Onboarding() {
 

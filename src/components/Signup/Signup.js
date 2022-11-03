@@ -2,7 +2,7 @@ import { useState, } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginWithEmail } from "../../utils/auth";
 import { NotificationBody, DEFAULT_START_TIME, DEFAULT_END_TIME } from "../Settings/Notifications/Notifications";
-import "./Signup.css";
+import styles from "./Signup.module.css";
 
 function Signup(props) {
 
@@ -35,11 +35,10 @@ function Signup(props) {
         case 2:
           return (
             <div>
-             
-              <div className ="title">
+              <div className="title">
                 <p>How many challenges do you want a day?</p>
               </div>
-              <div className = "dropdown">
+              <div className="dropdown">
                 <select value={numChallenges} onChange={e => setNumChallenges(parseInt(e.target.value))} className="optionsbox">
                   <option value={undefined} hidden> -- select an option -- </option>
                   {[...Array(5).keys()].map((i) => (
@@ -47,7 +46,6 @@ function Signup(props) {
                   ))}
                 </select>
               </div>
-             
             </div>
           );
         case 3:
@@ -115,9 +113,9 @@ function Signup(props) {
     <div>
       {getSignupComponents()}
       {signupStepCounter < 4 ? (
-        <button className="button" type="button" onClick={onContinue} disabled={disableContinue()}>Continue</button>
+        <button className={styles.button} type="button" onClick={onContinue} disabled={disableContinue()}>Continue</button>
       ) : (
-        <p className="title">Click on the email link sent to {email} to finish signing up!</p>
+        <p className={styles.title}>Click on the email link sent to {email} to finish signing up!</p>
       )}
     </div>
   )

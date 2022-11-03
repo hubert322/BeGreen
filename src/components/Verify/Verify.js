@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { emailRedirectLogin } from "../../utils/auth";
-import "./Verify.css";
+import styles from "./Verify.module.css";
 import { doc, getDoc, setDoc } from "firebase/firestore/lite";
 
 function Verify(props) {

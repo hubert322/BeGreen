@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import "./Auth.css";
+import styles from "./Auth.module.css";
 
 function Auth() {
 

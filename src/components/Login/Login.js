@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginWithEmail } from "../../utils/auth";
-import "./Login.css";
+import styles from "./Login.module.css";
 
 function Login(props) {
 
@@ -32,18 +32,18 @@ function Login(props) {
   return (
     <div>
       <div>
-        <p className="title">{loginMessages[loginStepCounter]}</p>
+        <p className={styles.title}>{loginMessages[loginStepCounter]}</p>
       </div>
       <div>
         {loginStepCounter == 0 ? (
-          <input className="input" placeholder="Your email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+          <input className={styles.input} placeholder="Your email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
         ) : null}
       </div>
       <div>
         {loginStepCounter == 0 ? (
-          <button type="button" onClick={onContinue} className="button">Continue</button>
+          <button type="button" onClick={onContinue} className={styles.button}>Continue</button>
         ) : null}
-        <button type="button" onClick={onSignup} className="secondarybutton">Sign Up</button>
+        <button type="button" onClick={onSignup} className={styles.secondarybutton}>Sign Up</button>
       </div>
     </div>
   );
