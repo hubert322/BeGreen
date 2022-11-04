@@ -1,38 +1,59 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.css";
-import settings from "../../assets/images/more-vertical.png";
-import Camera from "react-html5-camera-photo";
-import "react-html5-camera-photo/build/css/index.css";
+import { collection, getDocs, query } from "firebase/firestore/lite";
+import Bubbles from "../../assets/images/friendsbubble.png";
+import Numbers from "../../assets/images/numbers.png";
 
-function Home() {
+function Home(props) {
 
-  const [myImage, setMyImage] = useState(null);
+  const { db } = props;
+  const [challenges, setChallenges] = useState([]);
 
+  useEffect(() => {
+    async function helper() {
+      const q = query(collection(db, "challenges"));
+      const querySnapshot = await getDocs(q);
+      const queriedChallenges = []
+      querySnapshot.forEach(doc => {
+        queriedChallenges.push({
+          id: doc.id,
+          ...doc.data()
+        });
+      })
+      setChallenges(queriedChallenges);
+    }
+
+    helper();
+  }, []);
+
+  return (
+    <div className={styles.homeContainer}>
+      {challenges.map((challenge, i) => (
+        <ChallengeCard key={`challenge-${i}`} challenge={challenge} />
+      ))}
+    </div>
+  );
+}
+
+function ChallengeCard(props) {
+
+  const { challenge } = props;
   const navigate = useNavigate();
 
-  const onSettings = useCallback(() => {
-    navigate("/settings");
-  }, [navigate]);
-
-  function onTakePhoto(dataUri) {
-    console.log(dataUri);
-    setMyImage(dataUri);
+  function onCheckIn() {
+    navigate(`/feed?challengeId=${challenge["id"]}`)
   }
 
   return (
-    <div >
-      <nav>
-        <button type="button" onClick={onSettings} className={styles.Settings}><img src={settings} /></button>
-      </nav>
-      <div>
-        <div>
-          {/* <Camera onTakePhoto={onTakePhoto} /> */}
-          <img src={myImage} alt="myImage" />
-        </div>
-      </div>
+    <div className={styles.challenge}>
+        <p className={styles.title}>{challenge["title"]}</p>
+        <p className={styles.description}>{challenge["description"]}</p>
+        <img  className={styles.bubbles} src={Bubbles} />
+        <img  className={styles.numbers} src={Numbers} />
+        <button className={styles.checkinbutton} type="button" onClick={onCheckIn}>Check-In for challenge</button>
     </div>
-  );
+  )
 }
 
 export default Home;

@@ -1,17 +1,25 @@
-import { useCallback } from "react";
-import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import styles from "./Nav.module.css";
 import Shape from "../../assets/images/arrow-left.png";
+import settings from "../../assets/images/more-vertical.png";
 
 function Nav(props) {
 
   const { backTo } = props;
   const navigate = useNavigate();
 
-  const onBack = useCallback(() => {
-    navigate(-1);
-  }, [navigate]);
+  function onSettings() {
+    navigate("/settings");
+  }
+
+  function onBack() {
+    if (backTo !== null) {
+      navigate(backTo);
+    }
+    else {
+      navigate(-1);
+    }
+  }
 
   return (
     <nav>
@@ -22,16 +30,11 @@ function Nav(props) {
       >
         <img src={Shape} />
       </button>
+      <button type="button" onClick={onSettings} className={styles.settings}>
+        <img src={settings} />
+      </button>
     </nav>
   );
-};
-
-Nav.propTypes = {
-  backTo: PropTypes.string,
-};
-
-Nav.defaultProps = {
-  backTo: null
 };
 
 export default Nav;

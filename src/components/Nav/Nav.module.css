@@ -7,3 +7,13 @@
   left: 19px;
   top: 52px;
 }
+
+.settings {
+  background-color: Transparent;
+  border: none;
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  right: 19px;
+  top: 52px;
+}

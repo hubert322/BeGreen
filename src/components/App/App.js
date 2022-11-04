@@ -1,12 +1,14 @@
 import styles from "./App.module.css";
 
 import { Fragment, useEffect, useState } from "react";
-import { createBrowserRouter, Navigate, RouterProvider, useLocation, BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { Navigate, BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from 'firebase/firestore/lite';
 
 import Home from "../Home/Home";
+import Feed from "../Feed/Feed";
+import NewPost from "../NewPost/NewPost";
 import Settings from "../Settings/Settings";
 import Notifications from "../Settings/Notifications/Notifications";
 import Challenges from "../Settings/Challenges/Challenges";
@@ -16,8 +18,8 @@ import Signup from "../Signup/Signup";
 import Auth from "../Auth/Auth";
 import Verify from "../Verify/Verify";
 
-import { logIn } from "../../utils/auth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Nav from "../Nav/Nav";
 
 function App() {
 
@@ -63,14 +65,15 @@ function App() {
     });
   }, []);
 
-
   return (
     <div className={styles.background}>
       <header><span className={styles.Be}>Carb</span><span className={styles.Green}>Off.</span></header>
       <Routes>
         {loggedIn === true ? (
           <Fragment>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home db={db} />} />
+            <Route path="/feed" element={<Feed db={db} auth={auth} />} />
+            <Route path="/newPost" element={<NewPost db={db} auth={auth} />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/settings/notifications" element={<Notifications db={db} auth={auth} />} />
             <Route path="/settings/challenges" element={<Challenges db={db} auth={auth} />} />

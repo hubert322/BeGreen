@@ -1,47 +1,88 @@
-
-.Settings{
-  background-color: Transparent;
-  border:none;
-  position: absolute;
-  width: 23px;
-  height: 23px;
-  left: 19px;
-  top: 52px;
+.feedImg {
+  width: 370px;
 }
 
+.title {
+  position: relative;
+  left: 27px;
+  top: 126px;
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
 
-.Home-logo {
-  height: 40vmin;
-  pointer-events: none;
+  color: #FFFFFF;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .Home-logo {
-    animation: Home-logo-spin infinite 20s linear;
-  }
+.description {
+  position: relative;
+  left: 27px;
+  top: 109px;
+  font-family: 'Segoe UI';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 13px;
+
+  color: #FFFFFF;
 }
 
-.Home-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.bubbles {
+  position: relative;
+  left: 27px;
+  top: 139px;
+}
+
+.numbers {
+  position: relative;
+  left: 187px;
+  top: 139px;
+}
+
+.checkinbutton {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 32px;
+  gap: 10px;
+
+  position: relative;
+  left: 67px;
+  top: 169px;
+  width: 265px;
+  height: 60px;
+  border: none;
+
+
+  background: #99DAB3;
+  border-radius: 20px;
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+
+  color: #000000;
+}
+
+.challenge {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+  width: 100%; */
+
+  margin-bottom: 50px;
+}
+
+.homeContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.Home-link {
-  color: #61dafb;
-}
-
-@keyframes Home-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+  align-items: start;
 }

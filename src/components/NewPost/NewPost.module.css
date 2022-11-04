@@ -1,0 +1,68 @@
+.imgPreview {
+  width: 370px;
+}
+
+.button {
+  box-sizing: border-box;
+  Border: none;
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 32px;
+  gap: 10px;
+
+
+  position: absolute;
+  width: 350px;
+  height: 60px;
+  left: 20px;
+  top: 500px;
+
+  background: #99DAB3;
+  border-radius: 20px;
+
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
+}
+
+
+.secondarybutton {
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 32px;
+  gap: 10px;
+
+  position: absolute;
+  width: 350px;
+  height: 60px;
+  left: 20px;
+  top: 581px;
+
+  border: 1px solid rgba(255, 255, 255, 0.63);
+  border-radius: 20px;
+  background-color: black;
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height */
+
+
+  color: #FFFFFF;
+
+}
