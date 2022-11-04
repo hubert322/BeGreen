@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/BeGreen/static/css/main.8a0dfdd0.css",
-    "main.js": "/BeGreen/static/js/main.576b1d3a.js",
+    "main.css": "/BeGreen/static/css/main.c6f556dd.css",
+    "main.js": "/BeGreen/static/js/main.945e5a0f.js",
     "static/js/787.e8a846a3.chunk.js": "/BeGreen/static/js/787.e8a846a3.chunk.js",
     "static/media/friendsbubble.png": "/BeGreen/static/media/friendsbubble.280fb1e0472d75cfdd96.png",
     "index.html": "/BeGreen/index.html",
-    "main.8a0dfdd0.css.map": "/BeGreen/static/css/main.8a0dfdd0.css.map",
-    "main.576b1d3a.js.map": "/BeGreen/static/js/main.576b1d3a.js.map",
+    "main.c6f556dd.css.map": "/BeGreen/static/css/main.c6f556dd.css.map",
+    "main.945e5a0f.js.map": "/BeGreen/static/js/main.945e5a0f.js.map",
     "787.e8a846a3.chunk.js.map": "/BeGreen/static/js/787.e8a846a3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a0dfdd0.css",
-    "static/js/main.576b1d3a.js"
+    "static/css/main.c6f556dd.css",
+    "static/js/main.945e5a0f.js"
   ]
 }
