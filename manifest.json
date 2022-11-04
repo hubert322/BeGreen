@@ -1,6 +1,6 @@
 {
-  "name": "Carboff",
-  "short_name": "Carboff",
+  "name": "CarbOff",
+  "short_name": "CarbOff",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +13,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/BeGreen/",
+  "scope": "/BeGreen/",
   "background_color": "#030303",
   "display": "standalone",
   "orientation": "portrait",
