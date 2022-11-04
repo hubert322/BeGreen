@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./Feed.module.css";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore/lite";
 import Nav from "../Nav/Nav";
 import Profile from "../../assets/images/profile.png";
@@ -12,23 +12,31 @@ function Feed(props) {
   const [posts, setPosts] = useState([]);
   const [hasPosted, setHasPosted] = useState(false);
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  
+  const { state } = useLocation();
+  const { challengeId } = state;
 
   function onPost() {
-    navigate(`/newPost?challengeId=${challenge["id"]}`);
+    navigate("/newPost", {state: {challengedId: challengeId}});
   }
 
+  // Get the challenge data
   useEffect(() => {
     async function helper() {
-
-      const challengeId = searchParams.get("challengeId");
       const challengeDocRef = doc(db, "challenges", challengeId);
       const challengeDoc = await getDoc(challengeDocRef);
       setChallenge({
-        "id": challengeDoc.id,
+        id: challengeDoc.id,
         ...challengeDoc.data()
       });
+    }
 
+    helper()
+  }, []);
+
+  // Get the posts for this challenge
+  useEffect(() => {
+    async function helper() {
       const q = query(collection(db, "posts"), where("challengeId", "==", challengeId));
       const querySnapshot = await getDocs(q);
       const queriedPosts = []
@@ -37,7 +45,7 @@ function Feed(props) {
           setHasPosted(true);
         }
         queriedPosts.push({
-          "id": doc.id,
+          id: doc.id,
           ...doc.data()
         });
       })

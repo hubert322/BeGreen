@@ -3,7 +3,7 @@ import styles from "./NewPost.module.css";
 import Camera, { FACING_MODES } from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
 import { collection, doc, setDoc } from "firebase/firestore/lite";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Nav from "../Nav/Nav";
 
 function NewPost(props) {
@@ -13,7 +13,9 @@ function NewPost(props) {
   const [dataUri, setDataUri] = useState(null);
   const [facingMode, setFacingMode] = useState(FACING_MODES.ENVIRONMENT);
   const [description, setDescription] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
+
+  const { state } = useLocation();
+  const { challengeId } = state;
 
   const navigate = useNavigate();
 
@@ -33,7 +35,7 @@ function NewPost(props) {
       "numLikes": 0,
       "timeStamp": Date.now(),
       "description": description,
-      "challengeId": searchParams.get("challengeId")
+      "challengeId": challengeId
     })
     navigate("/");
   }

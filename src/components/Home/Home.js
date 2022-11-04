@@ -42,7 +42,7 @@ function ChallengeCard(props) {
   const navigate = useNavigate();
 
   function onCheckIn() {
-    navigate(`/feed?challengeId=${challenge["id"]}`)
+    navigate("/feed", {state: {challengeId: challenge["id"]}});
   }
 
   return (
