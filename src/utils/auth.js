@@ -3,7 +3,7 @@ import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailL
 const actionCodeSettings = {
   // URL you want to redirect back to. The domain (www.example.com) for this
   // URL must be in the authorized domains list in the Firebase Console.
-  url: 'http://192.168.1.216:3000/verify',
+  url: 'http://hubert322.github.io/BeGreen/#/verify',
   // This must be true.
   handleCodeInApp: true,
 };

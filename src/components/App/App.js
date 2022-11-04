@@ -1,7 +1,7 @@
 import styles from "./App.module.css";
 
 import { Fragment, useEffect, useState } from "react";
-import { Navigate, BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { Navigate, HashRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from 'firebase/firestore/lite';
@@ -93,9 +93,9 @@ function App() {
 
 function AppWrapper() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
