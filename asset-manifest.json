@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BeGreen/static/css/main.d26385f5.css",
-    "main.js": "/BeGreen/static/js/main.c0116124.js",
+    "main.js": "/BeGreen/static/js/main.63070a95.js",
     "static/js/787.e8a846a3.chunk.js": "/BeGreen/static/js/787.e8a846a3.chunk.js",
     "service-worker.js": "/BeGreen/service-worker.js",
     "static/media/profile1.png": "/BeGreen/static/media/profile1.7f6e236be703d49abfc2.png",
@@ -10,11 +10,11 @@
     "static/media/friendsbubble.png": "/BeGreen/static/media/friendsbubble.280fb1e0472d75cfdd96.png",
     "index.html": "/BeGreen/index.html",
     "main.d26385f5.css.map": "/BeGreen/static/css/main.d26385f5.css.map",
-    "main.c0116124.js.map": "/BeGreen/static/js/main.c0116124.js.map",
+    "main.63070a95.js.map": "/BeGreen/static/js/main.63070a95.js.map",
     "787.e8a846a3.chunk.js.map": "/BeGreen/static/js/787.e8a846a3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d26385f5.css",
-    "static/js/main.c0116124.js"
+    "static/js/main.63070a95.js"
   ]
 }
