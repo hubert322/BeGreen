@@ -1,7 +1,7 @@
 {
-  "name": "begreen",
+  "name": "carboff",
   "version": "0.1.0",
-  "homepage": "https://hubert322.github.io/BeGreen",
+  "homepage": "https://hubert322.github.io/CarbOff/",
   "private": true,
   "dependencies": {
     "@date-io/dayjs": "^2.16.0",
