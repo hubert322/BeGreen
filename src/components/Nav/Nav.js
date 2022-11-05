@@ -22,7 +22,7 @@ function Nav(props) {
   }
 
   return (
-    <nav>
+    <nav className={styles.container}>
       <button 
         type="button"
         onClick={onBack}

@@ -1,19 +1,176 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  top: 50px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.title {
+  width: 343px;
+  height: 34px;
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+
+  color: #E7E8E3;
+}
+
+.description {
+  width: 327px;
+  height: 26px;
+  left: 38px;
+  top: 116px;
+
+  font-family: 'Segoe UI';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 120%;
+
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+.tabContainer {
+
+}
+
+.new {
+  width: 132px;
+  height: 34px;
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+
+  color: #E7E8E3;
+  background-color: black;
+  border: none;
+}
+
+.ranking {
+  width: 132px;
+  height: 34px;
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+
+  color: #3F414E;
+  background-color: black;
+  border: none;
+}
+
+.feed {
+  position: relative;
+  top: 20px;
+}
+
+.post {
+  margin-bottom: 40px;
+}
+
+.postTop {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  left: 3px;
+}
+
+.username {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  left: 20px;
+
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #E7E8E3;
+
+  margin: 0;
+  margin-top: 5px;
+}
+
+.numLikesHidden {
+  position: relative;
+  width: 144px;
+  height: 24px;
+  left: 215px;
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #99DAB3;
+
+  margin: 0;
+  margin-top: 5px;
+}
+
 .imgContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
+  top: 5px;
 }
 
 .overlay {
   position: relative;
-  width: 375px;
-  top: 139px;
+  width: 370px;
+}
+
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: 40px;
+}
+
+.blur::before {
+  backdrop-filter: blur(8px);
 }
 
 .feedImg {
-  position: relative;
   width: 370px;
   border-radius: 40px;
 }
@@ -24,7 +181,7 @@
 
 .postButton {
   position: absolute;
-  top: 242px;
+  top: 100px;
   z-index: 2;
 
   box-sizing: border-box;
@@ -54,138 +211,43 @@
   line-height: 32px;
 }
 
-.overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  border-radius: 40px;
-}
-
-.blur::before {
-  backdrop-filter: blur(8px);
-}
-
-.title{
-  position: absolute;
-    width: 343px;
-    height: 34px;
-    left: 25px;
-    top: 79px;
-  
-    font-family: 'Segoe UI';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 27px;
-    text-align: center;
-  
-    color: #E7E8E3;
-}
-
-.description{
-  position: absolute;
-    width: 327px;
-    height: 26px;
-    left: 38px;
-    top: 116px;
-  
-    font-family: 'Segoe UI';
-    font-style: italic;
-    font-weight: 700;
-    font-size: 11px;
-    line-height: 120%;
-    /* or 13px */
-  
-    text-align: center;
-  
-    color: #FFFFFF;
-}
-
-.new{
-  position: absolute;
-    width: 132px;
-    height: 34px;
-    left: 50px;
-    top: 164px;
-  
-    font-family: 'Segoe UI';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 27px;
-    text-align: center;
-  
-    color: #E7E8E3;
-    background-color: black;
-    border: none;
-}
-
-.ranking{
-  position: absolute;
-    width: 132px;
-    height: 34px;
-    left: 210px;
-    top: 164px;
-  
-    font-family: 'Segoe UI';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 27px;
-    text-align: center;
-  
-    color: #3F414E;
-    background-color: black;
-      border: none;
-}
-
-.profile{
-  position: relative;
-    width: 30px;
-    height: 30px;
-    left: 12px;
-    top: 222px;
-}
-
-.username{
-  position: relative;
-  width: 30px;
-  height: 30px;
-  left: 52px;
-  top: 178px;
-
-
-  font-family: 'Segoe UI';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
-
-  color: #E7E8E3;
-}
-
-.numLikesHidden {
-  position: relative;
-  width: 144px;
-  height: 24px;
-  left: 280px;
-  top: 135px;
-
-  font-family: 'Segoe UI';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 19px;
-  text-align: center;
-
-  color: #99DAB3;
-}
-
 .overlayContainer {
-  position:relative
+  position: absolute;
+  top: 80px;
+  width: 100%;
+}
+
+.desc {
+  position: relative;
+  top: 160px;
+  left: 20px;
+  color: white;
+}
+
+.likeButton {
+  position: relative;
+  top: 60px;
+  left: 330px;
+}
+
+.likeText {
+  position: relative;
+  top: 43px;
+  left: 156px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.commentButton {
+  position: relative;
+  top: 40px;
+  left: 331px;
+}
+
+.commentText {
+  position: relative;
+  top: 25px;
+  left: 155px;
+  font-size: 13px;
+  text-align: center;
 }

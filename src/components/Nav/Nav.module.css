@@ -1,19 +1,22 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
 .backButton {
   background-color: Transparent;
   border:none;
-  position: absolute;
+  position: relative;
   width: 23px;
   height: 23px;
-  left: 19px;
-  top: 52px;
+  left: 3px;
 }
 
 .settings {
   background-color: Transparent;
   border: none;
-  position: absolute;
+  position: relative;
   width: 23px;
   height: 23px;
-  right: 19px;
-  top: 52px;
+  left: 330px;
 }
