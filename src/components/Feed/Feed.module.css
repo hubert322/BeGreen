@@ -60,7 +60,6 @@
   line-height: 27px;
   text-align: center;
 
-  color: #E7E8E3;
   background-color: black;
   border: none;
 }
@@ -76,9 +75,16 @@
   line-height: 27px;
   text-align: center;
 
-  color: #3F414E;
   background-color: black;
   border: none;
+}
+
+.boldTab {
+  color: #E7E8E3;
+}
+
+.lightTab {
+  color: #3F414E;
 }
 
 .feed {
@@ -222,6 +228,8 @@
   top: 160px;
   left: 20px;
   color: white;
+  width: 60%;
+  display: inline-block;
 }
 
 .likeButton {
@@ -250,4 +258,8 @@
   left: 155px;
   font-size: 13px;
   text-align: center;
+}
+
+.offset {
+  top: 280px;
 }

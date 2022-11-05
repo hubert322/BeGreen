@@ -5,6 +5,8 @@ import "react-html5-camera-photo/build/css/index.css";
 import { collection, doc, setDoc } from "firebase/firestore/lite";
 import { useLocation, useNavigate } from "react-router-dom";
 import Nav from "../Nav/Nav";
+import { IconContext } from "react-icons";
+import { MdOutlineFlipCameraIos } from "react-icons/md";
 
 function NewPost(props) {
 
@@ -50,25 +52,27 @@ function NewPost(props) {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <Nav backTo="/" />
-      <div>
+      <div className={styles.cameraContainer}>
         {dataUri ? (
           <>
             <img className={styles.imgPreview}src={dataUri}  />
-            <div>
-              <p>Description</p>
-              <input type="text" value={description} onChange={e => setDescription(e.target.value)} />
+            <div className={styles.descContainer}>
+              <p className={styles.descTitle}>Caption</p>
+              <textarea type="text" value={description} onChange={e => setDescription(e.target.value)} className={styles.descInput} />
             </div>
-            <div>
             <button className={styles.button} type="button" onClick={onUpload}>Upload</button>
-              <button className={styles.secondarybutton} type="button" onClick={onRetake}>Retake</button>
-            </div>
+            <button className={styles.secondarybutton} type="button" onClick={onRetake}>Retake</button>
           </>
         ) : (
           <>
             <Camera onTakePhoto={onTakePhoto} idealFacingMode={facingMode} />
-            <button type="button" onClick={onSwitch}>Switch</button>
+            <IconContext.Provider value={{color: "white", size: "40px", className: styles.flip}}>
+              <button type="button" onClick={onSwitch} className={styles.switchButton}>
+                <MdOutlineFlipCameraIos />
+              </button>
+            </IconContext.Provider>
           </>
         )}
       </div>
