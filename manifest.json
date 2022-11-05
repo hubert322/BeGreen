@@ -13,8 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://hubert322.github.io/",
-  "scope": "/",
+  "start_url": ".",
   "background_color": "#030303",
   "display": "standalone",
   "orientation": "portrait",
