@@ -1,22 +1,60 @@
-.hiddenOverlay {
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.overlay {
+  position: relative;
+  width: 375px;
+  top: 139px;
+}
+
+.feedImg {
   position: relative;
   width: 370px;
+  border-radius: 40px;
 }
 
-.hiddenOverlay .feedImg {
-  display: block;
-  width: 370px;
+.feedImgOffset {
+  top: 177px;
 }
 
-.feedImg{
-    position: relative;
-      top: 139px;
-      width: 370px;
-      border-radius: 40px;
+.postButton {
+  position: absolute;
+  top: 242px;
+  z-index: 2;
 
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 32px;
+  gap: 10px;
+
+  position: absolute;
+  width: 350px;
+  height: 60px;
+
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.63);
+  border-radius: 20px;
+
+  color: white;
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
 }
 
-.hiddenOverlay::before {
+.overlay::before {
   content: '';
   position: absolute;
   top: 0;
@@ -24,6 +62,10 @@
   bottom: 0;
   right: 0;
   z-index: 1;
+  border-radius: 40px;
+}
+
+.blur::before {
   backdrop-filter: blur(8px);
 }
 
@@ -111,18 +153,39 @@
 
 .username{
   position: relative;
-    width: 30px;
-    height: 30px;
-    left: 52px;
-    top: 178px;
-  
-  
-    font-family: 'Segoe UI';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 19px;
-    text-align: center;
-  
-    color: #E7E8E3;
+  width: 30px;
+  height: 30px;
+  left: 52px;
+  top: 178px;
+
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #E7E8E3;
+}
+
+.numLikesHidden {
+  position: relative;
+  width: 144px;
+  height: 24px;
+  left: 280px;
+  top: 135px;
+
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #99DAB3;
+}
+
+.overlayContainer {
+  position:relative
 }

@@ -42,7 +42,7 @@ function Feed(props) {
       const queriedPosts = []
       querySnapshot.forEach(doc => {
         if (doc.data()["uuid"] === auth.currentUser.uid) {
-          setHasPosted(true);
+          setHasPosted(false);
         }
         queriedPosts.push({
           id: doc.id,
@@ -76,27 +76,31 @@ function Feed(props) {
         {posts.map((post, i) => (
           <div key={`post-${i}`}>
             <div>
-            <img className={styles.profile} src={Profile} />
+              <img className={styles.profile} src={Profile} />
               <p className={styles.username}>isavetheworld</p>
-              <p># likes</p>
+              {!hasPosted ? (
+                <p className={styles.numLikesHidden}># likes</p>
+              ) : <p className={styles.numLikesHidden}></p>}
             </div>
-            <div className={hasPosted ? "" : styles.hiddenOverlay}>
-              <img
-                className={styles.feedImg}
-                src={post["dataUri"]}
-              />
+            <div className={styles.imgContainer}>
+              <div className={`${styles["overlay"]} ` + (hasPosted ? "" : styles.blur)}>
+                <img
+                  className={`${styles["feedImg"]} `}
+                  src={post["dataUri"]}
+                />
+              </div>
+              {!hasPosted ? (
+                <button className={styles.postButton} type="button" onClick={onPost}>Post to view</button>
+              ) : (
+                <button className={styles.postButton} type="button" onClick={onPost}>Post to view</button>
+                // <div className={styles.overlayContainer}>
+                //   <p>{post["description"]}</p>
+                //   <button>Like Button</button>
+                //   <button>Comment Button</button>
+                //   <p># of Comments</p>
+                // </div>
+              )}
             </div>
-            {!hasPosted ? (
-              <button type="button" onClick={onPost}>Post to view</button>
-            ) : (
-              <>
-                <p>{post["description"]}</p>
-                <button>Like Button</button>
-                <p># of Likes</p>
-                <button>Comment Button</button>
-                <p># of Comments</p>
-              </>
-            )}
           </div>
         ))}
       </div>
