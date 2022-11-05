@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/CarbOff/static/css/main.37622324.css",
+    "main.css": "/CarbOff/static/css/main.88242861.css",
     "main.js": "/CarbOff/static/js/main.0c0d4a55.js",
     "static/js/787.6c198b11.chunk.js": "/CarbOff/static/js/787.6c198b11.chunk.js",
     "service-worker.js": "/CarbOff/service-worker.js",
@@ -9,12 +9,12 @@
     "static/media/profile3.png": "/CarbOff/static/media/profile3.2c3001d3609d5c7b8595.png",
     "static/media/friendsbubble.png": "/CarbOff/static/media/friendsbubble.280fb1e0472d75cfdd96.png",
     "index.html": "/CarbOff/index.html",
-    "main.37622324.css.map": "/CarbOff/static/css/main.37622324.css.map",
+    "main.88242861.css.map": "/CarbOff/static/css/main.88242861.css.map",
     "main.0c0d4a55.js.map": "/CarbOff/static/js/main.0c0d4a55.js.map",
     "787.6c198b11.chunk.js.map": "/CarbOff/static/js/787.6c198b11.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.37622324.css",
+    "static/css/main.88242861.css",
     "static/js/main.0c0d4a55.js"
   ]
 }
