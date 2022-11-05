@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/CarbOff/static/css/main.88242861.css",
-    "main.js": "/CarbOff/static/js/main.0c0d4a55.js",
-    "static/js/787.6c198b11.chunk.js": "/CarbOff/static/js/787.6c198b11.chunk.js",
-    "service-worker.js": "/CarbOff/service-worker.js",
-    "static/media/profile1.png": "/CarbOff/static/media/profile1.7f6e236be703d49abfc2.png",
-    "static/media/profile2.png": "/CarbOff/static/media/profile2.2e153a9750671c69b334.png",
-    "static/media/profile3.png": "/CarbOff/static/media/profile3.2c3001d3609d5c7b8595.png",
-    "static/media/friendsbubble.png": "/CarbOff/static/media/friendsbubble.280fb1e0472d75cfdd96.png",
-    "index.html": "/CarbOff/index.html",
-    "main.88242861.css.map": "/CarbOff/static/css/main.88242861.css.map",
-    "main.0c0d4a55.js.map": "/CarbOff/static/js/main.0c0d4a55.js.map",
-    "787.6c198b11.chunk.js.map": "/CarbOff/static/js/787.6c198b11.chunk.js.map"
+    "main.css": "/BeGreen/static/css/main.d26385f5.css",
+    "main.js": "/BeGreen/static/js/main.7cb4a6c4.js",
+    "static/js/787.6c198b11.chunk.js": "/BeGreen/static/js/787.6c198b11.chunk.js",
+    "service-worker.js": "/BeGreen/service-worker.js",
+    "static/media/profile1.png": "/BeGreen/static/media/profile1.7f6e236be703d49abfc2.png",
+    "static/media/profile2.png": "/BeGreen/static/media/profile2.2e153a9750671c69b334.png",
+    "static/media/profile3.png": "/BeGreen/static/media/profile3.2c3001d3609d5c7b8595.png",
+    "static/media/friendsbubble.png": "/BeGreen/static/media/friendsbubble.280fb1e0472d75cfdd96.png",
+    "index.html": "/BeGreen/index.html",
+    "main.d26385f5.css.map": "/BeGreen/static/css/main.d26385f5.css.map",
+    "main.7cb4a6c4.js.map": "/BeGreen/static/js/main.7cb4a6c4.js.map",
+    "787.6c198b11.chunk.js.map": "/BeGreen/static/js/787.6c198b11.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.88242861.css",
-    "static/js/main.0c0d4a55.js"
+    "static/css/main.d26385f5.css",
+    "static/js/main.7cb4a6c4.js"
   ]
 }
